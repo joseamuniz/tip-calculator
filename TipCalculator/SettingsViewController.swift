@@ -10,15 +10,16 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
-//    @IBOutlet weak var minTip: UITextField!
     @IBOutlet weak var medTip: UITextField!
     @IBOutlet weak var maxTip: UITextField!
     @IBOutlet weak var minTip: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func onTap(_ sender: Any) {
+        view.endEditing(true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
