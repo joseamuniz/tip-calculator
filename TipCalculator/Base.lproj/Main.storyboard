@@ -150,6 +150,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
+                                    <action selector="resetAllTextAreas" destination="jX0-Sn-pyg" eventType="editingDidEnd" id="P1S-dA-cq7"/>
                                     <action selector="tipEdited:" destination="jX0-Sn-pyg" eventType="editingChanged" id="rpi-lk-Tad"/>
                                 </connections>
                             </textField>
@@ -160,6 +161,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
+                                    <action selector="resetAllTextAreas" destination="jX0-Sn-pyg" eventType="editingDidEnd" id="moo-yW-Q3Z"/>
                                     <action selector="tipEdited:" destination="jX0-Sn-pyg" eventType="editingChanged" id="BH4-o9-zBs"/>
                                 </connections>
                             </textField>
@@ -170,6 +172,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
+                                    <action selector="resetAllTextAreas" destination="jX0-Sn-pyg" eventType="editingDidEnd" id="4q6-6W-TrV"/>
                                     <action selector="tipEdited:" destination="jX0-Sn-pyg" eventType="editingChanged" id="Xo2-E2-LGy"/>
                                 </connections>
                             </textField>

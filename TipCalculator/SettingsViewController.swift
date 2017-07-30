@@ -14,6 +14,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var maxTip: UITextField!
     @IBOutlet weak var minTip: UITextField!
     
+    private static let settingsModel = TipSettingsModel.global
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -24,11 +26,14 @@ class SettingsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let defaults = UserDefaults.standard
-        minTip.text = defaults.string(forKey: "minTip") ?? "0.15"
-        medTip.text = defaults.string(forKey: "medTip") ?? "0.20"
-        maxTip.text = defaults.string(forKey: "maxTip") ?? "0.25"
+        resetAllTextAreas()
         
+    }
+    
+    @IBAction func resetAllTextAreas() {
+        minTip.text = TipSettingsModel.toPercentString(double: TipSettingsModel.global.minTip)
+        medTip.text = TipSettingsModel.toPercentString(double: TipSettingsModel.global.medTip)
+        maxTip.text = TipSettingsModel.toPercentString(double: TipSettingsModel.global.maxTip)
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,10 +42,10 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func tipEdited(_ sender: Any) {
-        let defaults = UserDefaults.standard
-        defaults.set(minTip.text, forKey: "minTip")
-        defaults.set(medTip.text, forKey: "medTip")
-        defaults.set(maxTip.text, forKey: "maxTip")
+        let minTipDouble = TipSettingsModel.parseFromPercentString(percentString: minTip.text!)
+        let medTipDouble = TipSettingsModel.parseFromPercentString(percentString: medTip.text!)
+        let maxTipDouble = TipSettingsModel.parseFromPercentString(percentString: maxTip.text!)
+        TipSettingsModel.global.setTips(minTip: minTipDouble, medTip: medTipDouble, maxTip: maxTipDouble)
     }
 
 

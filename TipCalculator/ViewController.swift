@@ -19,13 +19,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let defaults = UserDefaults.standard
-        tipPercent.setTitle(defaults.string(forKey: "maxTip") ?? "0.15", forSegmentAt: 2)
-        tipPercent.setTitle(defaults.string(forKey: "medTip") ?? "0.20", forSegmentAt: 1)
-        tipPercent.setTitle(defaults.string(forKey: "minTip") ?? "0.25", forSegmentAt: 0)
+        tipPercent.setTitle(TipSettingsModel.toPercentString(double: TipSettingsModel.global.maxTip), forSegmentAt: 2)
+        tipPercent.setTitle(TipSettingsModel.toPercentString(double: TipSettingsModel.global.medTip),
+            forSegmentAt: 1)
+        tipPercent.setTitle(TipSettingsModel.toPercentString(double: TipSettingsModel.global.minTip), forSegmentAt: 0)
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,7 +39,8 @@ class ViewController: UIViewController {
 
     @IBAction func billAdded(_ sender: Any) {
         let bill = Double(billField.text!) ?? 0
-        let tip = Double(tipPercent.titleForSegment(at: tipPercent.selectedSegmentIndex)!) ?? 0
+        let tip = TipSettingsModel.parseFromPercentString(percentString:
+            tipPercent.titleForSegment(at: tipPercent.selectedSegmentIndex)!)
         
         tipLabel.text = String(format: "$%.2f", (bill * tip))
         totalLabel.text = String(format: "$%.2f", (bill * (1 + tip)))
