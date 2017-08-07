@@ -2,7 +2,7 @@
 
 **TipCalculator** is a tip calculator application for iOS.
 
-Submitted by: *Jose Muniz**
+Submitted by: **Jose Muniz**
 
 Time spent: **4** hours spent in total
 
@@ -48,8 +48,13 @@ _Outlets_ and _Actions_ appear to be the way to link UI objects (view) with thei
 
 Question 2: "Swift uses [Automatic Reference Counting](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html#//apple_ref/doc/uid/TP40014097-CH20-ID49) (ARC), which is not a garbage collector, to manage memory. Can you explain how you can get a strong reference cycle for closures? (There's a section explaining this concept in the link, how would you summarize as simply as possible?)"
 
-**Answer:** [Enter your answer here in a paragraph or two].
+**Answer:** 
 
+A strong reference cycle occurs when a chain of objects mutually depend on one another (i.e. hold a strong reference on each other) in a way that causes both not to be deallocated.
+
+For example, if an object A depends (e.g. by having a field value) on an object B, and this object B refers back to A, then both will have a refCount > 0 even if both A and B are unreachable. 
+
+In the specific case of closures, a closure can be thought of as an object. This object can refer back to other objects (if, inside the closure, those objects are being referenced). Therefore, if an object holds a reference to a closure, and this closure holds a reference back to the object, the same phenomenon will occur. 
 
 ## License
 
