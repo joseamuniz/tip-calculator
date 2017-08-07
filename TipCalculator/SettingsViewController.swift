@@ -13,21 +13,31 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var medTip: UITextField!
     @IBOutlet weak var maxTip: UITextField!
     @IBOutlet weak var minTip: UITextField!
+    @IBOutlet weak var currentCountry: UILabel!
     
     private static let settingsModel = TipSettingsModel.global
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        CurrentLocationModel.global.subscribeLocationListener(callback: { (newCountry: String?) -> Void in
+            print("Changing location to " + (newCountry ?? "Unknown"))
+            self.setLocation(location: newCountry)
+        })
     }
     
     @IBAction func onTap(_ sender: Any) {
         view.endEditing(true)
     }
     
+    func setLocation(location: String?) {
+        currentCountry.text = CurrentLocationModel.global.getCurrentLocation() ?? "Unknown"
+
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         resetAllTextAreas()
-        
+        setLocation(location: CurrentLocationModel.global.getCurrentLocation())
     }
     
     @IBAction func resetAllTextAreas() {
@@ -39,6 +49,17 @@ class SettingsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func setForCountry() {
+        let ranges = TipCountryCalculator.global.tipForCountry(country:
+            CurrentLocationModel.global.getCurrentLocation()!)
+        
+        minTip.text = TipSettingsModel.toPercentString(double: ranges.0)
+        medTip.text = TipSettingsModel.toPercentString(double: ranges.1)
+        maxTip.text = TipSettingsModel.toPercentString(double: ranges.2)
+        // TODO (for some reason, the tipEdited listener is not being triggered, so trigger it manually)
+        tipEdited(self)
     }
     
     @IBAction func tipEdited(_ sender: Any) {

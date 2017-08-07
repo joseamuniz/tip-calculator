@@ -14,6 +14,8 @@
 		8246427C1F281FC9004F0EFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8246427A1F281FC9004F0EFC /* LaunchScreen.storyboard */; };
 		824642871F281FC9004F0EFC /* TipCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824642861F281FC9004F0EFC /* TipCalculatorTests.swift */; };
 		824642921F281FC9004F0EFC /* TipCalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824642911F281FC9004F0EFC /* TipCalculatorUITests.swift */; };
+		82AEC54E1F2DB028006C41D5 /* CurrentLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AEC54D1F2DB028006C41D5 /* CurrentLocationModel.swift */; };
+		82AEC5531F3381E9006C41D5 /* TipCountryCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AEC5521F3381E9006C41D5 /* TipCountryCalculator.swift */; };
 		82CD33841F29A71500644239 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD33831F29A71500644239 /* SettingsViewController.swift */; };
 		82CD33861F2A45BB00644239 /* TipSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD33851F2A45BB00644239 /* TipSettingsModel.swift */; };
 /* End PBXBuildFile section */
@@ -49,6 +51,8 @@
 		8246428D1F281FC9004F0EFC /* TipCalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipCalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		824642911F281FC9004F0EFC /* TipCalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCalculatorUITests.swift; sourceTree = "<group>"; };
 		824642931F281FC9004F0EFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82AEC54D1F2DB028006C41D5 /* CurrentLocationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationModel.swift; sourceTree = "<group>"; };
+		82AEC5521F3381E9006C41D5 /* TipCountryCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipCountryCalculator.swift; sourceTree = "<group>"; };
 		82CD33831F29A71500644239 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		82CD33851F2A45BB00644239 /* TipSettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipSettingsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +89,7 @@
 				824642851F281FC9004F0EFC /* TipCalculatorTests */,
 				824642901F281FC9004F0EFC /* TipCalculatorUITests */,
 				8246426F1F281FC9004F0EFC /* Products */,
+				82AEC54F1F2DB2F5006C41D5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,6 +135,13 @@
 			path = TipCalculatorUITests;
 			sourceTree = "<group>";
 		};
+		82AEC54F1F2DB2F5006C41D5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		82CD33871F2A475B00644239 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,7 +154,9 @@
 		82CD33881F2A476E00644239 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				82AEC5521F3381E9006C41D5 /* TipCountryCalculator.swift */,
 				82CD33851F2A45BB00644239 /* TipSettingsModel.swift */,
+				82AEC54D1F2DB028006C41D5 /* CurrentLocationModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -216,6 +230,14 @@
 					8246426D1F281FC9004F0EFC = {
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					824642811F281FC9004F0EFC = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -285,6 +307,8 @@
 				824642741F281FC9004F0EFC /* ViewController.swift in Sources */,
 				824642721F281FC9004F0EFC /* AppDelegate.swift in Sources */,
 				82CD33841F29A71500644239 /* SettingsViewController.swift in Sources */,
+				82AEC5531F3381E9006C41D5 /* TipCountryCalculator.swift in Sources */,
+				82AEC54E1F2DB028006C41D5 /* CurrentLocationModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
