@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "TipSettingsModel.init() -&gt; TipSettingsModel:TipSettingsModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "defaults.set(&quot;0.05&quot;, forKey: &quot;minTip&quot;)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
